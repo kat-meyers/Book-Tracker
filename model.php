@@ -1,6 +1,6 @@
 <?php
 	$conn = mysqli_connect('localhost', 'kmeyersf9', 'Daisy@992', 'C354_kmeyersf9');
-
+    //checks if username and password are valid
 	function isValid($username, $password){
 		
 		global $conn;
@@ -14,7 +14,7 @@
 			return false;
 		}
 	}
-	
+	//checks if username is available
 	function isUsernameValid($username){
 		
 		global $conn;
@@ -28,7 +28,7 @@
 			return true;
 		}
 	}
-
+    //creates user's account
     function addReader($username, $password, $email){
 		
 		global $conn;
@@ -43,7 +43,7 @@
             return false;
         }
     }
-	
+	//adds a book to user's owned list
 	function addOwned($username, $title, $author, $description, $favourite){
 		
 		global $conn;
@@ -65,7 +65,7 @@
         }
 		
 	}
-	
+	//adds a book to user's wishlist
 	function addWishlist($username, $title, $author, $description, $wanted){
 		
 		global $conn;
@@ -87,7 +87,7 @@
         }
 		
 	}
-	
+	//allows users to search for books
 	function searchBook($username, $term, $which){
 		
 		global $conn;
@@ -112,7 +112,7 @@
 		
 		return $data;
 	}
-	
+	//displays user's owned books
 	function displayOwned($username){
 		global $conn;
 		
@@ -128,7 +128,7 @@
 		
 		return $data;
 	}
-	
+	//displays user's wishlist
 	function displayWishlist($username){
 		global $conn;
 		
@@ -144,7 +144,7 @@
 		
 		return $data;
 	}
-
+    //displays what the user is currently reading
     function displayCurrent($username){  
         
         global $conn;
@@ -162,7 +162,7 @@
 		return $data;
         
     }
-	
+	//displays user's favourite books
 	function displayFavourites($username){
 		
 		global $conn;
@@ -179,7 +179,7 @@
 		
 		return $data;
 	}
-	
+	//displays user's most wanted books
 	function displayWanted($username){
 		global $conn;
 		
@@ -195,7 +195,7 @@
 		
 		return $data;
 	}
-
+    //deletes a book
     function deleteBook($username, $title, $author, $list){
         
         global $conn;
@@ -218,7 +218,7 @@
         }    
         
     }
-
+    //allows users to edit what they're currently reading
     function editCurrentlyReading($username, $title, $author){
         
         global $conn;
@@ -241,7 +241,7 @@
         } 
         
     }
-
+    //checks if password is right when changing passwords
     function checkPassword($username, $old){
         
         global $conn;
@@ -256,7 +256,7 @@
 			return false;
 		}
     }
-
+    //changes a user's password
     function changePassword($username, $new){
         
         global $conn;
@@ -270,7 +270,7 @@
             return false;
         }
     }
-
+    //deletes a user's account
     function deleteAccount($username){
         
         global $conn;
